@@ -8,19 +8,19 @@ const forecast = (latitude, longitude, callback) => {
         encodeURIComponent(longitude) +
         "?units=si";
 
-    request({ url: url, json: true }, (error, response) => {
+    request({ url, json: true }, (error, { body }) => {
         if (error) {
             callback("Check your internet connectivity!", undefined);
-        } else if (response.body.error) {
+        } else if (body.error) {
             callback("Enter valid data", undefined);
         } else {
             callback(
                 undefined,
-                response.body.daily.data[0].summary +
+                body.daily.data[0].summary +
                     " It is currently " +
-                    response.currently.temperature +
+                    body.currently.temperature +
                     "degress out. There is a " +
-                    response.body.currently.precipProbability +
+                    body.currently.precipProbability +
                     "% chance of rain"
             );
         }
