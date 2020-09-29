@@ -21,7 +21,7 @@ const products = {
 // console.log(productType);
 // console.log(stock);
 
-const transaction = (productMaterial, { type, stock }) => {
+const transaction = (productMaterial, { type, stock = 0 } = {}) => {
     console.log(productMaterial, type, stock);
 };
 transaction("Smooth", products);
