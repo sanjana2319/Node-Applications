@@ -28,16 +28,74 @@ MongoClient.connect(
         //     .toArray((error, user) => {
         //         console.log(user);
         //     });
-        db.collection("tasks").findOne(
-            { _id: new ObjectID("5f74dbb624fdaa22f0053399") },
-            (error, task) => {
-                console.log(task);
-            }
-        );
+        // db.collection("tasks").findOne(
+        //     { _id: new ObjectID("5f74dbb624fdaa22f0053399") },
+        //     (error, task) => {
+        //         console.log(task);
+        //     }
+        // );
+        // db.collection("tasks")
+        //     .find({ completed: false })
+        //     .toArray((error, tasks) => {
+        //         console.log(tasks);
+        //     });
+
+        // db.collection("users")
+        //     .updateOne(
+        //         {
+        //             _id: new ObjectID("5f74d5c15e6a001874661213"),
+        //         },
+        //         {
+        //             $inc: {
+        //                 age: 2,
+        //             },
+        //         }
+        //     )
+        //     .then((result) => {
+        //         console.log(result.modifiedCount);
+        //     })
+        //     .catch((error) => {
+        //         console.log(error);
+        //     });
+
+        // db.collection("tasks")
+        //     .updateMany(
+        //         {
+        //             completed: false,
+        //         },
+        //         {
+        //             $set: {
+        //                 completed: true,
+        //             },
+        //         }
+        //     )
+        //     .then((result) => {
+        //         return console.log(result.modifiedCount);
+        //     })
+        //     .catch((error) => {
+        //         console.log(error);
+        //     });
+
+        // db.collection("users")
+        //     .deleteMany({
+        //         age: 21,
+        //     })
+        //     .then((result) => {
+        //         console.log(result);
+        //     })
+        //     .catch((error) => {
+        //         console.log(errror);
+        //     });
+
         db.collection("tasks")
-            .find({ completed: false })
-            .toArray((error, tasks) => {
-                console.log(tasks);
+            .deleteOne({
+                name: "Lorean",
+            })
+            .then((result) => {
+                console.log(result);
+            })
+            .catch((error) => {
+                console.log(error);
             });
     }
 );
